@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoon - Campus Food Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar" id="sidebar">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                Spoon
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" id="foodOrderNav" >
+                    <a href="food-order.html" class="nav-link">
+                        <i class="fas fa-hamburger"></i>
+                        <span>Food Order</span>
+                    </a>
+                    <i class="fas fa-hamburger"></i>
+                    <span>Food Order</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-comment-alt"></i>
+                    <span>Messages</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-history"></i>
+                    <span>Order History</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-receipt"></i>
+                    <span>Bills</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-user-tie"></i>
+                    <span>My Account</span>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="greeting">Good Morning! </div>
+                <div class="user-profile">
+                    <img src="Shubha.jpg" alt="User Photo" />
+                </div>
+            </div>
+            
+            <!-- Dish of the Day -->
+
+                <div class="promo-banner active">
+                    <div class="eco-badge">ECO FRIENDLY</div>
+                    <div class="promo-title">DISH OF THE DAY</div>
+                    <div class="promo-text">
+                        🌱 CAMPUS SPECIAL - <strong>20% OFF</strong> ALL VEGAN MEALS<br>
+                        Sustainable dining for a better campus environment
+                    </div>
+                    <div class="special-offer">🔥 Limited Time Offer</div>
+                </div>
+            
+            <!-- Categories -->
+            <div class="categories">
+                <div class="category active" onclick="filterItems('all')">All</div>
+                <div class="category" onclick="filterItems('breakfast')">Breakfast</div>
+                <div class="category" onclick="filterItems('burgers')">Burgers</div>
+                <div class="category" onclick="filterItems('beverages')">Beverages</div>
+                <div class="category" onclick="filterItems('chicken')">Chicken</div>
+                <div class="category" onclick="filterItems('pizza')">Pizza</div>
+                <div class="category" onclick="filterItems('vegetarian')">Vegetarian</div>
+                <div class="category" onclick="filterItems('vegan')">Vegan</div>
+                <div class="category" onclick="filterItems('meal-deals')">Meal Deals</div>
+            </div>
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="Search for dishes, cuisines...">
+            </div>
+            
+            <!-- Popular Dishes -->
+            <div class="section-title">
+                <span>Popular on Campus</span>
+                <span class="see-all">See all</span>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-card" onclick="openDishModal('Chicken Biryani')">
+                    <img src="https://th.bing.com/th/id/OIP.yL4TjdA-xkQm20RDXfAGrQHaGu?w=179&h=182&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag spicy">Spicy</div>
+                            <div class="tag">Halal</div>
+                        </div>
+                        <div class="dish-name">Chowle Rice </div>
+                        <div class="dish-desc">Fragrant basmati rice with tender chicken pieces and aromatic spices</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$3.99</div>
+                            <div class="add-btn"onclick="openDishDetails('Chowle Rice')" >+</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dish-card" onclick="openDishModal('Veggie Burger')">
+                    <img src="https://th.bing.com/th/id/OIP.uWqfdsGH5e-38IocPKWrfwHaEK?w=331&h=186&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag veg">Vegetarian</div>
+                            <div class="tag vegan">Vegan</div>
+                        </div>
+                        <div class="dish-name">White Sauce Pasta </div>
+                        <div class="dish-desc">Plant-based patty with fresh veggies and special sauce</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$2.99</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dish-card" onclick="openDishModal('Margherita Pizza')">
+                    <img src="https://th.bing.com/th/id/OIP.Jmg8k0E-E_Zy1dSj_tjYjgHaE8?w=326&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag veg">Vegetarian</div>
+                        </div>
+                        <div class="dish-name">French Fries </div>
+                        <div class="dish-desc">Classic pizza with tomato sauce, mozzarella, and basil</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$4.49</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card" onclick="openDishModal('Chicken Biryani')">
+                    <img src="https://th.bing.com/th/id/OIP.EOD2-_0MeetDUstQQ4I5-wHaE7?w=202&h=135&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag spicy">Spicy</div>
+                            <div class="tag">Halal</div>
+                        </div>
+                        <div class="dish-name">Red Sauce Pasta</div>
+                        <div class="dish-desc">Fragrant basmati rice with tender chicken pieces and aromatic spices</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$3.99</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card" onclick="openDishModal('Chicken Biryani')">
+                    <img src="https://th.bing.com/th/id/OIP.x3bQySkzD7KajF17I8zTigHaHa?w=202&h=202&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag spicy">Spicy</div>
+                            <div class="tag">Halal</div>
+                        </div>
+                        <div class="dish-name">Chowmein</div>
+                        <div class="dish-desc">Fragrant basmati rice with tender chicken pieces and aromatic spices</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$30</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card" onclick="openDishModal('Chicken Biryani')">
+                    <img src="https://th.bing.com/th/id/OIP.NM_5h2osO6cyn87xt1cuTgHaEK?w=328&h=184&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag spicy">Spicy</div>
+                            <div class="tag">Halal</div>
+                        </div>
+                        <div class="dish-name">Rajma Rice</div>
+                        <div class="dish-desc">Fragrant basmati rice with tender chicken pieces and aromatic spices</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$30</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Offers -->
+            <div class="section-title">
+                <span>Student Specials</span>
+                <span class="see-all">See all</span>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-card" onclick="openDishModal('Meal Deal')">
+                    <img src="https://th.bing.com/th/id/OIP.awzDrZu8VfZNt5Uy8x5B5QHaLT?w=202&h=308&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag">Combo</div>
+                        </div>
+                        <div class="dish-name">Meal Deal</div>
+                        <div class="dish-desc">Main + Side + Drink for the price of main only</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$50</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dish-card" onclick="openDishModal('Breakfast Combo')">
+                    <img src=" https://th.bing.com/th/id/OIP.pzJ2g44Jis_lHoTCWwUToAHaFj?w=249&h=187&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag">Combo</div>
+                        </div>
+                        <div class="dish-name">Breakfast Combo</div>
+                        <div class="dish-desc">Sandwich + Coffee + Fruit - Perfect for early classes</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$39</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dish-card" onclick="openDishModal('Late Night Snack')">
+                    <img src="https://th.bing.com/th/id/OIP.1Alr9xWl_zRNxuB1K2ncfQHaE8?w=285&h=190&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag">Special</div>
+                        </div>
+                        <div class="dish-name">Late Night Snack</div>
+                        <div class="dish-desc">Available after 10pm for night owls</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$24</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card" onclick="openDishModal('Pav Bhaji')">
+                    <img src="data:image/jpeg;base64,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" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag">Combo</div>
+                        </div>
+                        <div class="dish-name">Pav Bhaji </div>
+                        <div class="dish-desc">Main + Side  for the price of main only</div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$59</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card" onclick="openDishModal('Panner Tikka')">
+                    <img src="https://th.bing.com/th/id/OIP._NHQ1ouiRia0sYxwkc8lqAHaHa?w=192&h=193&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag">Delicious</div>
+                        </div>
+                        <div class="dish-name">Panner Tikka</div>
+                        <div class="dish-desc"> Delicious dish of the Spoon </div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$59</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dish-card" onclick="openDishModal('Panner Fried Rice')">
+                    <img src="https://th.bing.com/th/id/OIP.DKODBnS3-FRZrNYp8VXBuQHaJM?w=159&h=197&c=7&r=0&o=5&dpr=1.1&pid=1.7" class="dish-image">
+                    <div class="dish-info">
+                        <div class="dietary-tags">
+                            <div class="tag">Combo</div>
+                        </div>
+                        <div class="dish-name">Panner Fried Rice </div>
+                        <div class="dish-desc">So tasty at minimum price </div>
+                        <div class="dish-footer">
+                            <div class="dish-price">$5.99</div>
+                            <div class="add-btn">+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wallet Section -->
+            <div class="wallet-section">
+                <div class="wallet-header">Meal Plan Balance</div>
+                <div class="balance">$15.75</div>
+                <div class="wallet-actions">
+                    <button class="wallet-btn top-up">Top Up</button>
+                    <button class="wallet-btn transfer">Transfer</button>
+                </div>
+            </div>
+            
+            <!-- Address Section -->
+            <div class="address-section">
+                <div class="address-header">YOUR CAMPUS LOCATION</div>
+                <div class="address-text">
+                    Geeta University, Naultha  <br>
+                    Near D Auditorium <br>
+                    University Main Campus
+                </div>
+                <div class="address-actions">
+                    <button class="address-btn">Add Details</button>
+                    <button class="address-btn">Add Notes</button>
+                </div>
+            </div>
+            
+            <!-- Cart Section -->
+            <div class="cart-section">
+                <div class="cart-header">
+                    <div class="cart-title">Your Order</div>
+                    <div class="see-all">See all</div>
+                </div>
+                
+                <div class="cart-items">
+                    <div class="cart-item">
+                        <div class="item-name">Chicken Rice ×1</div>
+                        <div class="item-price">$3.88</div>
+                    </div>
+                    <div class="cart-item">
+                        <div class="item-name">Cheese Burger ×2</div>
+                        <div class="item-price">$4.98</div>
+                    </div>
+                    <div class="cart-item">
+                        <div class="item-name">Vegan Pizza ×1</div>
+                        <div class="item-price">$5.59</div>
+                    </div>
+                </div>
+                
+                <div class="cart-total">
+                    <div class="total-label">Service Fee</div>
+                    <div class="item-price">$1.00</div>
+                </div>
+                
+                <div class="cart-total">
+                    <div class="total-label">Total</div>
+                    <div class="total-amount">$15.45</div>
+                </div>
+                
+                <input type="text" class="coupon-input" placeholder="Enter coupon code (e.g., STUDENT20)">
+                <button class="checkout-btn" onclick="openCheckoutModal()">
+                    <i class="fas fa-lock"></i> Secure Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dish Modal -->
+    <div class="modal" id="dishModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Customize Your Order</span>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalDishContent"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Confirm Your Order</span>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalCheckoutContent"></div>
+            </div>
+        </div>
+    </div>
+  
+    <script class="script.js"></script>
+</body>
+</html>
